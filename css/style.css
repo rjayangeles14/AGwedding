@@ -88,12 +88,18 @@ footer{
  /* header */
 
 .header{
- 	position: absolute;
+ 	position: fixed;
  	width: 100%;
  	left: 0;
  	top: 0;
  	z-index: 99;
- 	border-bottom: 1px solid rgba(255,255,255,0.1)
+ 	border-bottom: 1px solid rgba(255,255,255,0.1);
+ 	transition: all 0.5s ease;
+}
+
+.header.fixed{
+	background-color: #ffffff;
+	box-shadow: 0 0 8px #cccccc;
 }
 
 .header .logo{
@@ -107,7 +113,62 @@ footer{
 	font-family: 'Great Vibes', cursive;
 	letter-spacing: 2px;
 	text-transform: uppercase;
+	transition: all 0.5s ease;
 }
+
+.header.fixed .logo a{
+	color: #000000;
+}
+
+.header .hamburger-btn{
+	display: inline-block;
+	height: 34px;
+	width: 40px;
+	border-radius: 3px;
+	border: 1px solid #ffffff;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.5s ease;
+	display: none;
+}
+
+.header.fixed .hamburger-btn{
+	border-color: #000000;
+	background-color: #000000;
+}
+
+.header .hamburger-btn span{
+	display: block;
+	height: 1px;
+	width: 16px;
+	background-color: #ffffff;
+	position: relative;
+	transition: all 0.5s ease;
+}
+
+.header .hamburger-btn span:before,
+.header .hamburger-btn span:after{
+	content: '';
+	height: 1px;
+	width: 100%;
+	left: 0;
+	background-color: #ffffff;
+	position: absolute;
+	transition: all 0.5s ease;
+}
+
+.header .hamburger-btn span:before{
+	top: -6px;
+}
+
+.header .hamburger-btn span:after{
+	top: 6px;
+}
+
+
+
 
 .header .nav{
 	padding: 0 15px;
@@ -132,6 +193,10 @@ footer{
 	text-transform: uppercase;
 	text-decoration: none;
 	transition: color 0.5s ease;
+}
+
+.header.fixed .nav ul li a{
+	color: #555555;
 }
 
  /* home section */
@@ -385,6 +450,10 @@ footer{
 	max-width: 50%;
 }
 
+.story-section .story-img img{
+	width: 100%;
+}
+
 .story-section .story-text h3{
 	font-size: 24px;
 	margin:  0 0 8px;
@@ -422,7 +491,7 @@ footer{
 .event-section .event-item{
 	flex: 0 0 33.33%;
 	max-width: 33.33%;
-	padding: 0 15px;
+	padding: 15px;
 	display: flex;
 	flex-wrap: wrap;
 }
@@ -436,7 +505,7 @@ footer{
 	padding: 60px 45px 100px;
 	text-align: center;
 	box-shadow: 0 0 10px #888888;
-	flex-wrap: 0 0 100%;
+	flex: 0 0 100%;
 	max-width: 100%;
 	position: relative;
 	z-index: 1;
@@ -492,7 +561,7 @@ footer{
 /* people section */
 
 .people-section{
-	padding: 80px 0 80px;
+	padding: 80px 0 0;
 }
 
 .people-section .people-filter{
@@ -583,3 +652,208 @@ footer{
 .people-section .people-item-inner .social-links a:hover i{
 	color: #ffffff;
 }
+
+/* gallery section */
+.gallery-section{
+	padding: 80px 0 0;
+}
+
+.gallery-section .gallery-item{
+	flex: 0 0 33.33%;
+	max-width: 33.33%;
+	padding: 15px;
+}
+
+.gallery-section .gallery-item-inner{
+	overflow: hidden;
+	cursor: pointer;
+
+}
+
+.gallery-section .gallery-item img{
+	width: 100%;
+	transform: scale(1.1);
+	transition: all 0.5s ease;
+}
+
+.gallery-section .gallery-item-inner:hover img{
+	transform: scale(1);
+}
+
+/* gallery popup */
+
+.gallery-popup{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1099;
+	background-color: rgba(0,0,0,0.8);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: zoom-out;
+	display: none;
+}
+
+.gallery-popup.open{
+	display: flex;
+}
+
+.gallery-popup img.gp-img{
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	padding: 40px 0;
+}
+
+.gallery-popup .gp-container{
+	position: relative;
+	cursor: auto;
+}
+
+.gallery-popup .gp-counter{
+	display: block;
+	height: 40px;
+	color: #ffffff;
+	font-size: 16px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	line-height: 40px;
+	font-weight: bold;
+}
+.gallery-popup .gp-close{
+	display: block;
+	height: 40px;
+	width: 40px;
+	color: #ffffff;
+	font-size: 30px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	text-align: center;
+	line-height: 38px;
+	overflow: hidden;
+	cursor: zoom-out;
+}
+
+.gallery-popup .gp-controls{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 40px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.gallery-popup .gp-controls .prev,
+.gallery-popup .gp-controls .next{
+	display: inline-block;
+	margin: 0 10px;
+}
+
+.gallery-popup .gp-controls .prev i,
+.gallery-popup .gp-controls .next i{
+	color: #ffffff;
+	font-size: 20px;
+	display: block;
+	height: 30px;
+	width: 30px;
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;
+	border-radius: 2px;
+	transition: all 0.5s ease;
+}
+
+.gallery-popup .gp-controls .prev:hover i,
+.gallery-popup .gp-controls .next:hover i{
+	background-color: rgba(0,0,0,0.8);
+}
+
+.gallery-section .section-splitter{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	max-width: 100%;
+	height: 30px;
+}
+
+/* footer */
+
+.footer{
+	padding: 60px 0 120px;
+}
+
+.footer .footer-content{
+	flex: 0 0 100%;
+	max-width: 100%;
+	padding: 0 15px;
+}
+
+.footer .footer-content .couple-name{
+	width: 400px;
+	height: 400px;
+	border-radius: 50%;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+}
+
+.footer .footer-content .couple-name img{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	transform: rotate(100deg);
+}
+
+.footer .footer-content .couple-name h2{
+	font-size: 40px;
+	font-family: "Great Vibes", cursive;
+	color: #000000;
+	margin: 0;
+	margin-left: 12px;
+	font-weight: normal;
+	text-align: center;
+	text-transform: capitalize;
+	letter-spacing: 2px;
+}
+
+.footer .footer-content .couple-name h2 span{
+	font-family: "Great Vibes", cursive;
+	font-weight: normal;
+	display: block;
+}
+
+.footer .footer-content p{
+	font-size: 40px;
+	font-family: "Great Vibes", cursive;
+	color: #000000;
+	margin: 0;
+	font-weight: normal;
+	text-align: center;
+	letter-spacing: 2px;
+}
+
+/* copyright text */
+
+p.copyright-text{
+	text-align: center;
+	font-size: 14px;
+	padding: 20px 15px;
+	color: #555555;
+	border-top: 1px solid #cccccc;
+
+}
+
