@@ -127,3 +127,26 @@ $(document).ready(function(){
 	})
 
 })
+
+var images = [];
+function preload() {
+    for (var i = 0; i < arguments.length; i++) {
+        images[i] = new Image();
+        images[i].src = preload.arguments[i];
+    }
+}
+
+//-- usage --//
+preload(
+    "https://rjayangeles14.github.io/AGwedding/img/gallery/large/2.jpg",
+    "https://rjayangeles14.github.io/AGwedding/img/gallery/large/3.jpg",
+    "https://rjayangeles14.github.io/AGwedding/img/gallery/large/4.jpg",
+    "https://rjayangeles14.github.io/AGwedding/img/gallery/large/5.jpg",
+    "https://rjayangeles14.github.io/AGwedding/img/gallery/large/6.jpg",
+    "https://rjayangeles14.github.io/AGwedding/img/gallery/large/7.jpg",
+    "https://rjayangeles14.github.io/AGwedding/img/gallery/large/8.jpg",
+    "https://rjayangeles14.github.io/AGwedding/img/gallery/large/9.jpg",
+    "https://rjayangeles14.github.io/AGwedding/img/gallery/large/10.jpg",
+    "https://rjayangeles14.github.io/AGwedding/img/gallery/large/11.jpg",
+    "https://rjayangeles14.github.io/AGwedding/img/gallery/large/12.jpg"
+)
