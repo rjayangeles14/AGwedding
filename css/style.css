@@ -897,7 +897,7 @@ footer{
 	display: block;
 }
 
-.footer .footer-content p{
+.footer .footer-content p.thanks{
 	font-size: 40px;
 	font-family: "Great Vibes", cursive;
 	color: #000000;
@@ -905,6 +905,15 @@ footer{
 	font-weight: normal;
 	text-align: center;
 	letter-spacing: 2px;
+}
+
+.footer .footer-content p.hashtag{
+	font-size: 28px;
+	color: #000000;
+	margin: 15px 0;
+	font-weight: normal;
+	text-align: center;
+	
 }
 
 /* copyright text */
@@ -917,4 +926,3 @@ p.copyright-text{
 	border-top: 1px solid #cccccc;
 
 }
-

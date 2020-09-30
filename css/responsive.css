@@ -105,6 +105,10 @@
 	.story-section .story-item:nth-child(odd) .story-img{
 		padding: 0 15px 0 50px;
 	}
+
+	.footer .footer-content p.hashtag{
+		font-size: 24px;
+	}
 }
 
 @media (max-width: 574px) {
@@ -128,4 +132,13 @@
 	.footer .footer-content p{
 		font-size: 32px;
 	}
+
+	.footer .footer-content p.thanks{
+		font-size: 32px;
+	}
+
+	.footer .footer-content p.hashtag{
+		font-size: 18px;
+	}
+
 }
