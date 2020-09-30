@@ -61,7 +61,7 @@ $(document).ready(function(){
 		
 	})
 	function peopleFilter(target){
-		console.log(target);
+		// console.log(target);
 		$(".filter-btn").removeClass("active");
 		$(".filter-btn[data-target='"+target+"']").addClass("active");
 		$(".people-item").hide();
